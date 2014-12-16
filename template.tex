@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amsfonts, amsthm, amssymb}  % Some math symbols
+\usepackage{mathtools} % defines \coloneqq
+\usepackage{enumerate}
+\usepackage{fullpage}
+
+\usepackage[x11names, rgb]{xcolor}
+\usepackage{tikz}
+\usepackage{graphicx}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\pagestyle{empty}
+
+\def\indented#1{\list{}{}\item[]}
+\let\indented=\endlist
+
+\newcounter{questionCounter}
+\newcounter{partCounter}[questionCounter]
+
+\newenvironment{question}[2][\arabic{questionCounter}]{%
+    \addtocounter{questionCounter}{1}%
+    \setcounter{partCounter}{0}%
+    \vspace{.25in} \hrule \vspace{0.5em}%
+        \noindent{\bf #2}%
+    \vspace{0.8em} \hrule \vspace{.10in}%
+}{}
+
+\renewenvironment{part}[1][\alph{partCounter}]{%
+    \addtocounter{partCounter}{1}%
+    \vspace{.10in}%
+    \begin{indented}%
+       {\bf (#1)} %
+}{\end{indented}}
+
+% ----- Identifying Information -----------------------------------------------
+\newcommand{\myclass}{15-131}
+\newcommand{\myname}{Andrew Carnegie}
+\newcommand{\myandrew}{andrew@andrew.cmu.edu}
+\newcommand{\myhwname}{Assignment 0}
+\newcommand{\myrecitation}{Section A}
+% -----------------------------------------------------------------------------
+
+\begin{document}
+\begin{center}
+  {\Large \myclass{} \myhwname} \\
+  \myname \\
+  \myandrew \\
+  \myrecitation \\
+  \today
+\end{center}
+
+% ----- Your Content (delete from here until \end{document}) ------------------
+
+% Example Usage
+\begin{question}{My Question's Title}
+  This is my answer to the first question.
+\end{question}
+
+\begin{question}{Another Question}
+  Kitsch twee wayfarers, aliquip Bushwick brunch accusamus odio scenester duis.
+  Actually try-hard ethical, delectus blog Tumblr sriracha aesthetic pickled
+  VHS slow-carb fanny pack semiotics. Adipisicing farm-to-table Brooklyn, trust
+  fund cupidatat roof party semiotics mollit. Austin ugh farm-to-table
+  post-ironic try-hard, food truck fashion axe deep v freegan lo-fi trust fund.
+  Deserunt nulla Godard non put a bird on it. Ennui YOLO jean shorts quinoa
+  tempor, messenger bag selfies dolor Bushwick. Tote bag roof party
+  Williamsburg, banh mi migas iPhone gentrify hashtag tempor in banjo
+  church-key occaecat.
+\end{question}
+
+\newpage
+
+\begin{question}{One More Question}
+  \begin{part}
+    This is my answer the first part.
+  \end{part}
+  \begin{part}
+    This is my answer the second part.
+  \end{part}
+\end{question}
+% -----------------------------------------------------------------------------
+
+\end{document}
